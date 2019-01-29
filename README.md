@@ -14,8 +14,6 @@ It does not work with python 3!
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
-
 First, clone the git repository by doing
 
 ```
