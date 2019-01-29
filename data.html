@@ -1,15 +1,29 @@
 <html>
 <head>
+<!-- Resources -->
+<script src="https://www.amcharts.com/lib/4/core.js"></script>
+<script src="https://www.amcharts.com/lib/4/charts.js"></script>
+<script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+<script src="./results/datafile.js"></script>
+<script src="./results/estimated_datafile.js"></script>
+
+<h1 id="formula_placeholder"></h1>
 <h2> Hier is de data uit results/datafile.js weergegeven op een normale schaalverdeling</h2>
 <h3> Rood: data uit onze formule </h3>
 <h3> Blauw: onze testdata </h3>
 <h3> Als het leeg is hieronder, voer generate_datafile.py uit. Als dat niet werkt, run eerst crack.py om wat resultaten te maken om hier weer te geven </h3>
-<h4> Het effect werkt het beste wanneer crack.py een paar uur is laten runnen </h4>
 <div id="chartdiv2"></div>
 <h2> Hier is de data weergegeven op een logaritmische schaalverdeling</h2>
 <h3> Rood: data uit onze formule </h3>
 <h3> Blauw: onze testdata </h3>
 <div id="chartdiv"></div>
+<br>
+<script>
+if(typeof formula !== "undefined"){
+	document.getElementById("formula_placeholder").innerHTML = "De geschatte formule is: <p id='formula'></p>";
+	document.getElementById("formula").innerHTML = formula;
+}
+</script>
 <!-- Styles -->
 <style>
 #chartdiv {
@@ -22,12 +36,7 @@
 }
 </style>
 
-<!-- Resources -->
-<script src="https://www.amcharts.com/lib/4/core.js"></script>
-<script src="https://www.amcharts.com/lib/4/charts.js"></script>
-<script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
-<script src="./results/datafile.js"></script>
-<script src="./results/estimated_datafile.js"></script>
+
 <!-- Chart code -->
 <script>
 // Themes begin
@@ -51,34 +60,26 @@ timeAxis.renderer.minGridDistance = 20;
 timeAxis.title.text = "Time in seconds"
 
 // Create series
-var series = chart.series.push(new am4charts.LineSeries());
-series.data = imported_data
-series.dataFields.valueY = "time";
-series.dataFields.valueX = "bits";
-series.tensionX = 0.84;
-series.tensionY = 0.84;
-series.strokeWidth = 9;
+if(typeof imported_data !== "undefined"){
+	var series = chart.series.push(new am4charts.LineSeries());
+	series.data = imported_data
+	series.dataFields.valueY = "time";
+	series.dataFields.valueX = "bits";
+	series.tensionX = 0.84;
+	series.tensionY = 0.84;
+	series.strokeWidth = 9;
+}
 
-var series2 = chart.series.push(new am4charts.LineSeries());
-series2.data = estimated_imported_data
-series2.dataFields.valueY = "time";
-series2.dataFields.valueX = "bits";
-series2.tensionX = 0.84;
-series2.tensionY = 0.84;
-series2.strokeWidth = 3;
-series2.stroke = "#FF0000";
-
-/*var bullet = series.bullets.push(new am4charts.CircleBullet());
-bullet.circle.fill = am4core.color("#fff");
-bullet.circle.strokeWidth = 3;
-
-// Add cursor
-chart.cursor = new am4charts.XYCursor();
-chart.cursor.fullWidthLineX = true;
-chart.cursor.yAxis = timeAxis;
-chart.cursor.lineX.strokeWidth = 0;
-chart.cursor.lineX.fill = am4core.color("#000");
-chart.cursor.lineX.fillOpacity = 0.1;*/
+if(typeof estimated_imported_data !== "undefined"){
+	var series2 = chart.series.push(new am4charts.LineSeries());
+	series2.data = estimated_imported_data
+	series2.dataFields.valueY = "time";
+	series2.dataFields.valueX = "bits";
+	series2.tensionX = 0.84;
+	series2.tensionY = 0.84;
+	series2.strokeWidth = 3;
+	series2.stroke = "#FF0000";
+}
 
 // Add scrollbar
 chart.scrollbarX = new am4core.Scrollbar();
@@ -106,32 +107,30 @@ timeAxis.logarithmic = true;
 timeAxis.renderer.minGridDistance = 20;
 timeAxis.title.text = "Time in seconds"
 // Create series
-var series = chart.series.push(new am4charts.LineSeries());
-series.data = imported_data;
-series.dataFields.valueY = "time";
-series.dataFields.valueX = "bits";
-series.tensionX = 1.0;
-series.strokeWidth = 9;
 
-var series2 = chart.series.push(new am4charts.LineSeries());
-series2.data = estimated_imported_data;
-series2.dataFields.valueY = "time";
-series2.dataFields.valueX = "bits";
-series2.tensionX = 1.0;
-series2.strokeWidth = 3;
-series2.stroke = "#FF0000";
-/*var bullet = series.bullets.push(new am4charts.CircleBullet());
-bullet.circle.fill = am4core.color("#fff");
-bullet.circle.strokeWidth = 3;*/
+if(typeof imported_data !== "undefined"){
+	var series = chart.series.push(new am4charts.LineSeries());
+	series.data = imported_data
+	series.dataFields.valueY = "time";
+	series.dataFields.valueX = "bits";
+	series.tensionX = 0.84;
+	series.tensionY = 0.84;
+	series.strokeWidth = 9;
+}
 
-/*// Add cursor
-chart.cursor = new am4charts.XYCursor();
-chart.cursor.fullWidthLineX = true;
-chart.cursor.yAxis = timeAxis;
-chart.cursor.lineX.strokeWidth = 0;
-chart.cursor.lineX.fill = am4core.color("#000");
-chart.cursor.lineX.fillOpacity = 0.1;
-*/
+if(typeof estimated_imported_data !== "undefined"){
+	var series2 = chart.series.push(new am4charts.LineSeries());
+	series2.data = estimated_imported_data
+	series2.dataFields.valueY = "time";
+	series2.dataFields.valueX = "bits";
+	series2.tensionX = 0.84;
+	series2.tensionY = 0.84;
+	series2.strokeWidth = 3;
+	series2.stroke = "#FF0000";
+}
+
+
+
 // Add scrollbar
 chart.scrollbarX = new am4core.Scrollbar();
 

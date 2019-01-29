@@ -34,8 +34,9 @@ def estimate(x):
     #N=b*g**t
     return b*(g**x)
 all_times = {}
-for x in range(32, highest+4, 4):
+for x in range(0, highest+4, 4):
     all_times[x]=estimate(x)
 with open("results/estimated_datafile.js","w") as f:
     f.write("estimated_imported_data=[{\n"+("".join(['"bits":'+str(x)+',\n"time":'+str(all_times[x])+"\n},{\n" for x in range(32, highest+4, 4)])[:-3])+"];")
+    f.write("formula='t = %s*%s**b'\n"%(b,g))
 print "t = %s*%s**b" % (b,g)

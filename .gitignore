@@ -1,3 +1,6 @@
 imports/*.pyc
 *.zip
 results/*
+estimate_slowest.py
+estimate_fastest.py
+data2.html
