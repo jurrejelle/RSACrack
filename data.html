@@ -6,26 +6,33 @@
 <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
 <script src="./results/datafile.js"></script>
 <script src="./results/estimated_datafile.js"></script>
-
+<h1 id="warning"></h1>
 <h1 id="formula_placeholder"></h1>
-<h2> Hier is de data uit results/datafile.js weergegeven op een normale schaalverdeling</h2>
-<h3> Rood: data uit onze formule </h3>
-<h3> Blauw: onze testdata </h3>
-<h3> Als het leeg is hieronder, voer generate_datafile.py uit. Als dat niet werkt, run eerst crack.py om wat resultaten te maken om hier weer te geven </h3>
+<h1>Blue: our testdata</br>
+Red: the data from the estimated formula</h1>
+<h1>Normal graph</h1>
 <div id="chartdiv2"></div>
-<h2> Hier is de data weergegeven op een logaritmische schaalverdeling</h2>
-<h3> Rood: data uit onze formule </h3>
-<h3> Blauw: onze testdata </h3>
+<h1>Logarithmic graph</h1>
 <div id="chartdiv"></div>
 <br>
 <script>
 if(typeof formula !== "undefined"){
-	document.getElementById("formula_placeholder").innerHTML = "De geschatte formule is: <p id='formula'></p>";
+	document.getElementById("formula_placeholder").innerHTML = "The estimated formula is: <p id='formula'></p>";
 	document.getElementById("formula").innerHTML = formula;
+}
+if(typeof estimated_imported_data == "undefined"){
+		document.getElementById("warning").innerHTML += "Please run aproximate_formula.py, there's currently no formula to extrapolate the data";
+}
+if(typeof imported_data == "undefined"){
+		document.getElementById("warning").innerHTML += "Please run the generate_datafile.py, there's currently no datafile.js";
 }
 </script>
 <!-- Styles -->
 <style>
+#warning {
+	color: #FF0000;
+	font-size: 60px;
+}
 #chartdiv {
   width: 80%;
   height: 300px;
