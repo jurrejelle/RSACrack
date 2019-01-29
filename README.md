@@ -4,7 +4,7 @@ A tool to test how long it takes to crack RSA.
 
 ## Getting Started
 
-With these instructions, you can get your own test data for your computer on how long it takes to crack RSA keys. That is, to factor the coprime n into the two primes p and q.
+With these instructions, you can get your own test data for your computer on how long it takes to crack RSA keys. That is, to factor the coprime `n` into the two primes `p` and `q`.
 
 ### Prerequisites
 
