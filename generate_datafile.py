@@ -2,6 +2,7 @@ import os
 folder = "results/"
 all_times = {}
 times_list = []
+#Generate all the medians
 for z in range(64, 256, 4):
     times = []
     if(str(z)+".txt" not in os.listdir("./results")):
@@ -20,6 +21,7 @@ for z in range(64, 256, 4):
     all_times[z]=median
     times_list.append(z)
     print "Done %s bits" % z
+#Write the medians and amount of bits to the datafile for every bit 64+4n, in a format that javascript can read
 with open("results/datafile.js","w") as f:
     f.write("imported_data=[{\n"+("".join(['"bits":'+str(x)+',\n"time":'+str(all_times[x])+"\n},{\n" for x in times_list])[:-3])+"];")
 print "Written and done!"

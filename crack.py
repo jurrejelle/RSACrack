@@ -25,7 +25,7 @@ for r in range(64, 256, 4):
         if(str(r)+".txt" not in os.listdir("./results")):
                 with open("results/"+str(r)+".txt", "w") as f:
                         pass
-        #See if the current file already has the required amount of testcases
+        #Check if the current file already has the required amount of testcases
         with open("results/"+str(r)+".txt") as f:
                 current_lines = len(f.readlines())
                 if(r<130 and len(f.readlines())>attempts_under_130):
@@ -33,6 +33,7 @@ for r in range(64, 256, 4):
                 if(r>130 and len(f.readlines())>attempts_above_130):
                         continue
         working = 0
+        #Set the timeout for the desired amount of bits
         if(r>130):
                 nr = attempts_above_130-current_lines+1
                 timeout = timeout_after
@@ -44,24 +45,27 @@ for r in range(64, 256, 4):
         for count in range(1, nr):
                 working = 1
                 p,q=30,30
+                #Generate the two primes p and q
                 while not(isPrime(p)):
                         p = genrandom(int(r/2))
                 while not(isPrime(q) and p!=q):
                         q = genrandom(int(r/2))
                 print("attempt: %s/%s, bits: %s, n: %s" % (count, nr-1, str(len(str(bin(q*p)))-2), str(p*q)))
                 time1 = time.time()
-
+                #Actually perform the mpqs
                 factor1 = mpqs(p*q, time1, timeout)
                 time2 = time.time()
                 print time2-time1,
                 times.append(time2-time1)
                 print("seconds passed")
+                #Check for timeout
                 if(factor1=="timeout"):
                         print "timeout"
                         timeouts+=1
                         if(timeouts>20):
                                 break;
                         continue;
+                #Write the output to stdout and the results file
                 print("Primes: "+str(factor1)+str(", ")+str(p*q/factor1)+"\n")
                 with open("results/"+str(r)+".txt", "a") as f:
                         f.write(str(time2-time1) +","+str(p*q)+","+str(factor1)+"\n")

@@ -4,12 +4,7 @@ if(not(bits_file)):
     if("results" in os.listdir(".")):
         print "\n".join(os.listdir("results"))
         bits_file = raw_input("Which file do you want to open? ")
-        folder = "results"
-    else:
-        print "\n".join([x for x in os.listdir(".") if "." not in x])
-        folder = raw_input("Which folder do you want to use? ")
-        print "\n".join(os.listdir(folder))
-        bits_file = raw_input("Which file do you want to open? ")
+folder = "results"
 if(".txt" not in bits_file):
     bits_file+=".txt"
 print "\n\nAnalyzing %s" % folder+"/"+bits_file
