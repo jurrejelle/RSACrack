@@ -58,7 +58,7 @@ which will create a datafile.js inside the results directory, which is used by t
 
 To generate an approximation of the formula for time over bits, you need to run
 ```
-aproximate_formula.py
+python aproximate_formula.py
 ```
 Which will both print the formula it estimated, aswell as creating an estimated_results.js file in the results directory, which is used by data.html aswell
 
@@ -66,3 +66,6 @@ Which will both print the formula it estimated, aswell as creating an estimated_
 
 To view the test data, aproximated formula and aproximated data, you simply need to open ```data.html``` in a web browser
 
+ 
+### Credits
+Most of the code was written by me, but with one exception, which is why I wanna give a huge shoutout to [primo-ppcg](https://github.com/primo-ppcg) for writing this code for the Multiple Polynomial Quadratic Sieve in [this stack-exchange post](https://codegolf.stackexchange.com/questions/8629/fastest-semiprime-factorization). These are the files in the imports folder
