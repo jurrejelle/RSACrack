@@ -69,3 +69,6 @@ To view the test data, aproximated formula and aproximated data, you simply need
  
 ### Credits
 Most of the code was written by me, but with one exception, which is why I wanna give a huge shoutout to [primo-ppcg](https://github.com/primo-ppcg) for writing this code for the Multiple Polynomial Quadratic Sieve in [this stack-exchange post](https://codegolf.stackexchange.com/questions/8629/fastest-semiprime-factorization). These are the files in the imports folder
+
+# Contact 
+If you have any questions or want to contact me, feel free to contact me on [twitter](https://twitter.com/twinjurre), [instagram](https://instagram.com/jurrejelle), [telegram](https://t.me/jurrejelle) or discord (jurrejelle#4936)
