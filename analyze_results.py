@@ -1,3 +1,4 @@
+#!/usr/bin/env python2
 import os
 bits_file = ""
 if(not(bits_file)):

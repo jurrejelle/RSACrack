@@ -1,3 +1,4 @@
+#!/usr/bin/env python2
 import random
 from math import sqrt
 from itertools import count, islice
