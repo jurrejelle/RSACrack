@@ -39,6 +39,8 @@ This will crack the keys and save how long it takes to do it, and thus generate 
 
 #### It's very important to leave this running for a while, else you won't have enough testdata to work with
 
+It by default cracks 100 keys per amount of bits. To run the other programs efficiently, it is reccomended you leave it running until atleast 128 bits, preferably higher. Above the 130 bits, it will start cracking only 20 keys per amount of bits, because of time concerns. The amount of testcases can be changed in the crack.py file by editing the variables attempts_under_130 and attempts_above_130
+
 ### Checking specific bit-length keys
 
 To get information about any specific bit-length key, you can run
