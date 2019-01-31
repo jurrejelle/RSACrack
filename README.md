@@ -2,6 +2,11 @@
 
 A tool to test how long it takes to crack RSA.
 
+## Heads up!
+
+This tool is built to aproximate the times based on test data you generate yourself. This is meant as a proof of concept, and in no way supposed to be entirely accurate, since one test data sample can change the time for the entire formula.
+
+
 ## Getting Started
 
 With these instructions, you can get your own test data for your computer on how long it takes to crack RSA keys. That is, to factor the coprime `n` into the two primes `p` and `q`.
