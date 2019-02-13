@@ -18,7 +18,7 @@ if("results" not in os.listdir(".")):
 times = []
 timeout_before = 20#Time to time out in seconds
 timeout_after  = 1200
-attempts_under_130 = 100 #Amount of testcases which it averages for the result
+attempts_under_130 = 40 #Amount of testcases which it averages for the result
 attempts_above_130 = 20  #Amount of testcases for above 150 bits
 for r in range(64, 256, 4):
         timeouts = 0
