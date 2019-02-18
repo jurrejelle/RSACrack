@@ -19,7 +19,25 @@
 <div id="chartdiv"></div>
 <div id="chartdiv3"></div>
 <br>
+<h1 id="formula_placeholder"></h1>
+<h2 id="formula_calculator_placeholder"></h1>
 <script>
+if(typeof formula !== "undefined"){
+	document.getElementById("formula_placeholder").innerHTML = "The estimated formula is: <p id='formula'></p>";
+	document.getElementById("formula").innerHTML = formula;
+	document.getElementById("formula_calculator_placeholder").innerHTML = "Estimate how long it takes to crack a key of a specific amount of bits here: <input id='bits' type='number' onchange='check()'></input></br></h2><h2 id='result'>"
+	function check(){
+		bits = document.getElementById("bits").value;
+		console.log(b*Math.pow(g, bits));
+		document.getElementById("result").innerHTML = "It would take "+(b*Math.pow(g, bits))+" seconds to crack a key that's "+bits+" bits long.";
+	}
+}
+if(typeof estimated_imported_data == "undefined"){
+		document.getElementById("warning").innerHTML += "Please run aproximate_formula.py, there's currently no formula to extrapolate the data</br>";
+}
+if(typeof imported_data == "undefined"){
+		document.getElementById("warning").innerHTML += "Please run the generate_datafile.py, there's currently no datafile.js</br>";
+}
 if(typeof formula !== "undefined"){
 	document.getElementById("formula_placeholder").innerHTML = "De geschatte formule is: <p id='formula'></p>";
 	document.getElementById("formula").innerHTML = formula;
