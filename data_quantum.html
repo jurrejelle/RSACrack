@@ -197,6 +197,21 @@ if(typeof fastest_data !== "undefined"){
 	series4.strokeWidth = 3;
 	series4.stroke = "#ff77ff";
 }
+	
+new_data = [{"bits":0,
+	"time":0.000001},
+	{"bits":1,
+	"time":0.000001}];
+			
+var series5 = chart2.series.push(new am4charts.LineSeries());
+series5.data = new_data;
+series5.dataFields.valueY = "time";
+series5.dataFields.valueX = "bits";
+series5.tensionX = 0.84;
+series5.tensionY = 0.84;
+series5.strokeWidth = 0;
+series5.stroke = "#7777ff";
+
 // Add scrollbar
 chart2.scrollbarX = new am4core.Scrollbar();
 
