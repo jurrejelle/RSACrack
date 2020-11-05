@@ -1,4 +1,5 @@
 # RSACrack
+(Side note: I have recently added the Dutch PDF of the Highschool Research Project that this was made for)
 
 A tool to test how long it takes to crack RSA.
 
